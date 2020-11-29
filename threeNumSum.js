@@ -51,6 +51,8 @@ function threeNumberSum(array, targetSum){
                 i ++;
             }else {
                 arr.push([array[i], array[k], array[j]])
+                k++; // this part is so important never miss it
+                j--; // this part is so important never miss it
             }
         }
 
