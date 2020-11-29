@@ -26,3 +26,43 @@
 //After this target value,  we will have an total value which is the total of pointer i and j;
 // rest of the problem is same as two poitner problem anymore
 // we just need to move the pointer according to difference between or total and target value
+
+// Solution
+
+function threeNumberSum(array, targetSum){
+
+    // first sort the array because otherwise we can't compare total and target value
+
+    array.sort((a,b) => a - b)
+    let arr = [] //  we will push the triblets
+    // we want to go up till the second last point because otherwise we will not have any triblets after secodn last point
+    for(let i = 0; i < array.length - 2; i++){ 
+        let item = array[i];
+        let target = targetSum - item;
+        let k = i + 1 // we want to start the pointer one pinter ahead from each index of array
+        let j = array.length - 1 // j will always start from end of the array
+
+        while(k < j){
+            let total = array[k] + array[j];
+
+            if(total > target){
+                j --
+            }else if(total < target){
+                i ++;
+            }else {
+                arr.push([array[i], array[k], array[j]])
+            }
+        }
+
+    }
+
+
+    return arr;
+
+
+}
+
+
+
+
+
