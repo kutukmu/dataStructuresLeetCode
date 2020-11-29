@@ -21,4 +21,46 @@
 // because after that point we will start to open the gap of difference, so in that case wil will start to increase j
 // till we get a number that equal to first number
 
+//SOLUTION
+
+function smallestDifference(arrayOne, arrayTwo){
+
+
+    arrayOne.sort((a,b) => a - b);
+    arrayTwo.sort((a,b) => a - b);
+
+    let pair = [];
+    let min = Infinity;
+    let i = 0;
+    let j = 0;
+
+    while(i < arrayOne.length && j < arrayTwo.length ){
+            
+        let dif = Math.abs(arrayOne[i] - arrayTwo[j]);
+        if(dif < min){
+            min = dif;
+            pair = [arrayOne[i], arrayTwo[j]]
+        }
+
+
+        if(arrayOne[i] < arrayTwo[j]){
+            i++
+        }else if(arrayOne[i] > arrayTwo[j]){
+            j++
+        }else{
+            pair = [arrayOne[i], arrayTwo[j]];
+            break;
+        }
+
+    }
+
+
+    return pair
+
+
+
+
+
+}
+
 
