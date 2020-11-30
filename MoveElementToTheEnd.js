@@ -9,3 +9,31 @@
 //pointer at the beggining, will move each time and if we find a value that is equal to instance integer,
 // then this is the best case to swapp this two value, so we will swap them
 
+
+// SOLUTION
+
+function moveElementToEnd(array, toMove){
+
+        let i = 0;
+        let j = array.length - 1;
+
+        while(i < j){
+
+
+            while(array[j] === toMove && i < j){
+                j--
+            }
+
+
+            if(array[i] === toMove){
+                let temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+
+
+            i++;
+
+        }
+
+}
