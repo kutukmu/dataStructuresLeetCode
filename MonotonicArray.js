@@ -8,4 +8,30 @@
 // if they are true at eh same time we will return false, otherwise return true
 
 
-
+var isMonotonic = function(A) {
+ 
+    let isInc = false;
+    let isDec = false;
+    
+    for(let i = 1; i < A.length; i++){
+        
+        if(A[i] - A[i - 1] > 0){
+            isInc  = true;
+        }else if(A[i] - A[i - 1] < 0){
+            isDec = true;
+        }
+      
+        
+    }
+    
+    
+    if(isInc && isDec){
+        return false;
+    }else {
+        return true;
+    }
+    
+    
+    
+    
+};
