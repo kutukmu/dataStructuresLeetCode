@@ -10,4 +10,60 @@
 // left pointer will go till pointer gets a bigger value then previos index
 // right pointer will go till pointer gets a bigger value then previos index
 
+//  Solution
+
+function longestPeak(array) {
+
+    let longest = 0;
+
+
+    for(let i = 1; i < array.length ; i++){
+
+        if(array[i] > array[i - 1] && array[i] > array[i +  1]){
+
+            let left  = calcLeft(i - 1, array);
+            let right = calcRight( i +  1, array);
+
+            longest = Math.max(longest , right - left + 1)
+
+        }
+
+    }
+    return longest;
+}
+
+function calcLeft(idx, array){
+
+    while(idx >= 0){
+
+        if(array[idx] > array[idx - 1]){
+            idx --;
+        }else{
+            break;
+        }
+
+    }
+
+    return idx;
+
+}
+
+function calcRight(idx, array){
+
+    while(idx < array.length){
+
+        if(array[idx] > array[idx + 1]){
+            idx ++;
+        }else{
+            break;
+        }
+
+    }
+
+    return idx
+
+}
+
+
+
 
