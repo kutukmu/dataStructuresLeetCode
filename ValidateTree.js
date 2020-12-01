@@ -9,3 +9,31 @@
 // And left side of the tree will be always samller then root
 // So Basically in the beggining, -Infinity < left < parentNode.value
 // parentNode.Value < rightSide < Infinity
+
+// Solution
+
+function validateBst(tree) {
+
+
+    return traverse(tree,-Infinity, Infinity)
+
+  }
+
+function traverse(node,min,max){
+
+
+    if(!node){
+        return true;
+    }
+
+
+    if(node.value >= max || node.value < min){
+        return false;
+    }
+
+
+    return traverse(node.left,min,node.value) && traverse(node.right,node.value,max)
+
+
+
+}
