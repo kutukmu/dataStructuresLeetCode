@@ -35,10 +35,6 @@ function getYoungestCommonAncestor(topAncestor, descendantOne, descendantTwo){
 
     }
 
-
-
-
-
 }
 
 
