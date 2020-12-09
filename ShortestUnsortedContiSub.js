@@ -14,3 +14,50 @@ Return the shortest such subarray and output its length.
 // asnwer  5 - 1 + 1;
 
 
+function subarraySort(array) {
+
+    let min = Infinity;
+    let max = -Infinity;
+
+    for(let i = 0; i < array.length; i++){
+        let num = array[i]
+        if(isNotSorted(i, array)){
+            min = Math.min(min, num)
+            max = Math.max(max,num)
+        }
+
+    }
+
+    if(min === Infinity){
+        return [-1,-1]
+    }else{
+        return max - min + 1
+    }
+
+}
+
+function isNotSorted(idx, nums){
+
+    if(idx === nums.length - 1){
+        if(nums[idx - 1] > nums[idx]){
+            return false;
+        }
+    }
+
+
+    return nums[idx] > nums [idx + 1] || nums[idx] < nums[idx - 1]
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
